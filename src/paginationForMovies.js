@@ -27,9 +27,18 @@ class PageComponent extends React.Component {
                 </PaginationItem>
                 <PaginationItem>
                     <PaginationLink onClick={() => this.props.changePage(5)} href="#">
-                        5
+                        {this.props.currentpage <= 5 ? 5 : this.props.currentpage}
                     </PaginationLink>
                 </PaginationItem>
+                <PaginationItem>
+                    <PaginationLink
+                        pagination={false}
+                        // disabled={true}
+                        next
+                        onClick={() => this.props.progressForward(this.props.currentpage < 10 ? this.props.currentpage + 1 : 10)}
+                    />
+                </PaginationItem>
+
 
             </Pagination>
         )
